@@ -32,7 +32,10 @@ export const processFile = (path: string) =>
       pipe(
         readFile(handle),
         Effect.flatMap((content) =>
-          writeFile(handle, `Modified: ${content}`)
+          pipe(
+            writeFile(handle, `Modified: ${content}`),
+            Effect.map(() => `Successfully processed file: ${path}`)
+          )
         ),
         Effect.ensuring(Effect.sync(() => handle.close()))
       )

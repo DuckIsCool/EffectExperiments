@@ -34,7 +34,7 @@ export const runSchema = async () => {
   const validData = {
     id: 1,
     name: "johnpork",
-    email: "porkquave@fed.osaka",
+    email: "porkquave@gmail.com",
     age: 111,
     active: true
   }
@@ -45,7 +45,7 @@ export const runSchema = async () => {
   const invalidData = {
     id: "notnumbertest",
     name: "rio",
-    email: "die@fed.osaka"
+    email: "rio@gmail.com"
   }
   
   try {
@@ -57,7 +57,7 @@ export const runSchema = async () => {
   const partialData = {
     id: 2,
     name: "Test+Partial",
-    email: "tes@fed.osaka"
+    email: "tes@gmail.com"
   }
   
   const result2 = await Effect.runPromise(createUser(partialData))
